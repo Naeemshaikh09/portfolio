@@ -32,7 +32,7 @@ img{max-width:100%;display:block}
 #progress{position:fixed;top:0;left:0;height:2px;background:var(--mint);width:0;z-index:9999}
 
 /* Page */
-.page{padding:14px;max-width:1360px;margin:0 auto}
+.page{padding:14px;max-width:1360px;margin:0 auto;min-width:0;width:100%;box-sizing:border-box}
 @media(max-width:600px){ .page{padding:10px} }
 
 /* Common card */
@@ -43,13 +43,14 @@ img{max-width:100%;display:block}
   border-radius:18px;overflow:hidden;
   margin-bottom:14px;
   box-shadow:0 12px 40px rgba(0,0,0,.35);
+  min-width:0;
 }
-.card-top{ display:flex;align-items:center;justify-content:space-between;padding:14px 20px;position:relative;z-index:5}
-.brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:11px;letter-spacing:.12em}
+.card-top{ display:flex;align-items:center;justify-content:space-between;padding:14px 20px;position:relative;z-index:5;min-width:0;gap:10px;flex-wrap:wrap}
+.brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:11px;letter-spacing:.12em;flex-shrink:0}
 .brand b{color:var(--ink)} .brand span{color:var(--mint)}
-.menu{font-size:11px;font-weight:600;background:var(--ink);color:#060808;padding:6px 12px;border-radius:999px;display:flex;align-items:center;gap:8px;border:1px solid var(--ink)}
+.menu{font-size:11px;font-weight:600;background:var(--ink);color:#060808;padding:6px 12px;border-radius:999px;display:flex;align-items:center;gap:8px;border:1px solid var(--ink);flex-shrink:0}
 .menu i{width:16px;height:16px;border-radius:50%;background:#060808;color:var(--ink);display:grid;place-items:center;font-size:10px}
-.card-foot{ display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-top:1px solid rgba(255,255,255,.05);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2)}
+.card-foot{ display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-top:1px solid rgba(255,255,255,.05);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);gap:10px;flex-wrap:wrap;min-width:0}
 .card-foot span{color:var(--muted2)}
 .kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mint);margin-bottom:8px}
 .divider{height:1px;background:var(--line)}
@@ -202,17 +203,21 @@ img{max-width:100%;display:block}
 .course ul{margin-top:6px;margin-left:16px;font-size:11px;color:var(--muted);line-height:1.6}
 
 /* CONTACT */
-.contact-card{padding:20px;display:grid;grid-template-columns:1.1fr .9fr;gap:20px;position:relative;overflow:hidden}
+.contact-card{padding:20px;display:grid;grid-template-columns:1.1fr .9fr;gap:20px;position:relative;overflow:hidden;min-width:0}
 @media(max-width:800px){ .contact-card{grid-template-columns:1fr} }
 .contact-card h2{font-family:'Space Grotesk',sans-serif;font-size:22px;line-height:.95}
 .contact-card h2 span{color:var(--mint)}
 .wave{position:absolute;right:0;bottom:0;width:60%;height:120px;opacity:.22;pointer-events:none}
 .wave svg{width:100%;height:100%}
-.cinfo{display:grid;gap:8px;font-size:11.5px;color:var(--muted)}
+.cinfo{display:grid;gap:8px;font-size:11.5px;color:var(--muted);min-width:0}
 .cinfo i{color:var(--mint)}
-.clinks{display:grid;gap:8px}
-.clink{display:flex;align-items:center;gap:8px;padding:10px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.02)}
-.clink i{width:26px;height:26px;border-radius:6px;background:rgba(124,240,181,.1);display:grid;place-items:center;color:var(--mint)}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:0}
+@media(max-width:700px){ .cgrid{grid-template-columns:1fr} }
+.clinks{display:grid;gap:8px;min-width:0}
+.clink{display:flex;align-items:center;gap:8px;padding:10px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.02);min-width:0;overflow-wrap:anywhere;word-break:break-word}
+.clink > div{min-width:0;overflow-wrap:anywhere;word-break:break-word}
+.clink i{width:26px;height:26px;border-radius:6px;background:rgba(124,240,181,.1);display:grid;place-items:center;color:var(--mint);flex-shrink:0}
+.clink a{overflow-wrap:anywhere;word-break:break-word}
 
 .reveal{opacity:0;transform:translateY(10px);transition:.5s var(--ease)}
 .reveal.in{opacity:1;transform:none}
@@ -399,7 +404,7 @@ img{max-width:100%;display:block}
         <p style="font-size:11px;color:var(--muted);margin-top:8px;max-width:340px">Whether you have a project in mind, a job opportunity, or just want to say hi — I’m always open to connect.</p>
       </div>
       <div class="cinfo">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="cgrid">
           <div class="clinks">
             <div class="clink"><i>◉</i><div><b>Naeem Shaikh</b><br><span style="font-size:11px;color:var(--muted)">Software Engineer | Full-Stack Developer</span><br><span style="font-size:11px;color:var(--muted)">Nashik, Maharashtra, India</span></div></div>
             <div class="clink"><i>✉</i><div><a href="mailto:naeemshaikh09sss@gmail.com">naeemshaikh09sss@gmail.com</a><br><a href="tel:+917058133209">+91-7058133209</a></div></div>
