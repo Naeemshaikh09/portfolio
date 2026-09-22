@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naeem Shaikh — Software Engineer</title>
+<meta name="description" content="Naeem Shaikh — Full-Stack Developer from Nashik. Building scalable systems with React, Next.js, Node.js.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050707;
+  --card:#070B0A;
+  --card2:#0A0F0E;
+  --mint:#7CF0B5;
+  --mint2:#9CFFC8;
+  --mint-dim:rgba(124,240,181,.14);
+  --mint-border:rgba(124,240,181,.16);
+  --line:rgba(255,255,255,.06);
+  --ink:#EFF6F1;
+  --muted:#8AA39B;
+  --muted2:#5F756F;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+::selection{background:var(--mint);color:#032018}
+#progress{position:fixed;top:0;left:0;height:2px;background:var(--mint);width:0;z-index:9999}
+
+/* Page */
+.page{padding:14px;max-width:1360px;margin:0 auto}
+@media(max-width:600px){ .page{padding:10px} }
+
+/* Common card */
+.card{
+  position:relative;
+  background:linear-gradient(180deg, #0A0F0E 0%, #070A0A 100%);
+  border:1px solid var(--mint-border);
+  border-radius:18px;overflow:hidden;
+  margin-bottom:14px;
+  box-shadow:0 12px 40px rgba(0,0,0,.35);
+}
+.card-top{ display:flex;align-items:center;justify-content:space-between;padding:14px 20px;position:relative;z-index:5}
+.brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:11px;letter-spacing:.12em}
+.brand b{color:var(--ink)} .brand span{color:var(--mint)}
+.menu{font-size:11px;font-weight:600;background:var(--ink);color:#060808;padding:6px 12px;border-radius:999px;display:flex;align-items:center;gap:8px;border:1px solid var(--ink)}
+.menu i{width:16px;height:16px;border-radius:50%;background:#060808;color:var(--ink);display:grid;place-items:center;font-size:10px}
+.card-foot{ display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-top:1px solid rgba(255,255,255,.05);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2)}
+.card-foot span{color:var(--muted2)}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mint);margin-bottom:8px}
+.divider{height:1px;background:var(--line)}
+
+/* HERO */
+.hero{
+  position:relative;min-height:92vh;display:flex;flex-direction:column;overflow:hidden;
+  background:
+    radial-gradient(820px 520px at 54% 46%, rgba(16,120,60,.28) 0%, rgba(12,80,42,.16) 22%, transparent 66%),
+    linear-gradient(180deg, #0A0F0F 0%, #050707 100%);
+}
+.hero-glow{
+  position:absolute;left:54%;top:46%;transform:translate(-50%,-50%);
+  width:680px;height:520px;border-radius:50%;
+  background:radial-gradient(ellipse at center, rgba(26,180,90,.26) 0%, rgba(16,120,60,.16) 18%, rgba(10,70,38,.08) 30%, transparent 68%);
+  filter:blur(18px);z-index:1;pointer-events:none;
+}
+.hero-person{
+  position:absolute;left:50%;bottom:0;transform:translateX(-50%);
+  height:96%;width:auto;z-index:2;display:flex;align-items:end;justify-content:center;pointer-events:none;
+}
+.hero-person picture{height:100%;display:flex;align-items:end;justify-content:center}
+.hero-person img{
+  height:100%;width:auto;max-width:720px;object-fit:contain;object-position:bottom center;
+  filter:drop-shadow(0 16px 40px rgba(0,0,0,.45));
+}
+@media(max-width:900px){
+  .hero-person{position:relative;left:auto;transform:none;height:420px;width:100%;bottom:auto}
+  .hero-person img{height:100%;max-width:380px;margin:0 auto}
+  .hero{ min-height:auto}
+  .hero-glow{width:520px;height:380px;left:50%;top:44%}
+}
+@media(max-width:600px){ .hero-person{height:360px} .hero-person img{max-width:320px} }
+
+/* Giant NAEEM */
+.hero-body{position:relative;z-index:3;padding:8px 24px 0;flex:1;display:flex;flex-direction:column}
+@media(max-width:900px){ .hero-body{padding:10px 20px 0} }
+.hey{font-size:15px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:7px}
+.big-name{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(72px, 11.5vw, 152px);line-height:.86;letter-spacing:-.05em;color:var(--mint);
+  margin-top:8px;
+}
+@media(max-width:900px){ .big-name{font-size:clamp(56px, 14vw, 96px)} }
+@media(max-width:600px){ .big-name{font-size:clamp(48px, 15vw, 72px)} }
+.role{font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:#D8E8E0;margin-top:10px}
+@media(max-width:600px){ .role{letter-spacing:.24em} }
+.hero-lower{
+  display:grid;grid-template-columns:1fr 320px;gap:24px;margin-top:18px;padding:0 0 14px;
+}
+@media(max-width:900px){ .hero-lower{grid-template-columns:1fr;gap:20px} }
+.hero-left{max-width:420px}
+.loc{font-size:11.5px;color:var(--muted);display:flex;gap:6px;align-items:center;margin-top:10px}
+.loc i{color:var(--mint)}
+.desc{font-size:11.8px;line-height:1.65;color:var(--muted);margin-top:14px;max-width:360px}
+.contact{margin-top:16px;display:grid;gap:8px}
+.cline{display:flex;gap:8px;align-items:center;font-size:11.5px;color:var(--muted)}
+.cline i{width:14px;height:14px;display:grid;place-items:center;color:var(--mint)}
+.soc{display:flex;gap:14px;margin-top:4px}
+.soc a{display:flex;gap:6px;align-items:center;font-size:11.5px;color:var(--muted)}
+.soc a i{width:16px;height:16px;border-radius:50%;background:rgba(124,240,181,.1);border:1px solid rgba(124,240,181,.14);display:grid;place-items:center;color:var(--mint);font-size:10px}
+
+.hero-right{width:320px;justify-self:end;display:grid;gap:18px}
+@media(max-width:900px){ .hero-right{width:100%;grid-template-columns:1fr 1fr} }
+@media(max-width:600px){ .hero-right{grid-template-columns:1fr} }
+.rblock{border-left:1px solid rgba(124,240,181,.14);padding-left:12px}
+.rtitle{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--mint);margin-bottom:8px}
+.rlist{display:grid;gap:6px;font-size:11.5px;color:#C8D9D1;line-height:1.4}
+.tgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px 6px}
+.titem{display:grid;place-items:center;gap:6px;text-align:center}
+.ticon{width:34px;height:34px;border:1px solid rgba(255,255,255,.12);border-radius:50%;display:grid;place-items:center;color:#E6F0EB}
+.titem span{font-size:10px;color:var(--muted)}
+.scroll{
+  position:absolute;right:12px;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;
+  font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.16em;color:var(--muted2);display:flex;align-items:center;gap:10px;z-index:4;
+}
+.scroll::before,.scroll::after{content:"";width:1px;height:28px;background:rgba(124,240,181,.22);display:block}
+@media(max-width:900px){ .scroll{display:none} }
+
+/* ABOUT */
+.about{ display:grid;grid-template-columns:1.15fr .85fr;gap:20px;padding:22px 20px}
+@media(max-width:860px){ .about{grid-template-columns:1fr} }
+.about h2{font-family:'Space Grotesk',sans-serif;font-size:28px;line-height:1;letter-spacing:-.03em}
+.about h2 span{color:var(--mint)}
+.about p{font-size:12px;line-height:1.65;color:var(--muted);margin-top:10px}
+.about-right{border:1px solid var(--mint-border);border-radius:12px;background:rgba(255,255,255,.02);padding:14px}
+.arow{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.arow:last-child{border:none}
+.arow i{width:28px;height:28px;border-radius:50%;background:rgba(124,240,181,.1);border:1px solid rgba(124,240,181,.14);display:grid;place-items:center;color:var(--mint);font-size:12px;flex-shrink:0}
+.arow b{font-size:11px}
+.arow span{font-size:11px;color:var(--muted)}
+.quote{margin-top:10px;padding:10px;border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.02);font-size:11px;color:var(--muted);font-style:italic}
+.quote b{color:var(--ink);font-style:normal}
+
+/* PROJECTS */
+.proj-head{padding:16px 20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.proj-head h2{font-family:'Space Grotesk',sans-serif;font-size:20px}
+.proj-head p{font-size:11px;color:var(--muted);max-width:320px}
+.proj-grid{padding:14px 14px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:900px){ .proj-grid{grid-template-columns:1fr} }
+@media(min-width:901px) and (max-width:1100px){ .proj-grid{grid-template-columns:repeat(2,1fr)} }
+.pcard{background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:12px;padding:12px;position:relative;overflow:hidden}
+.pnum{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--mint)}
+.pcard h3{font-family:'Space Grotesk',sans-serif;font-size:13px;margin-top:6px}
+.pcard em{font-size:10.5px;color:var(--muted);font-style:normal}
+.pshot{margin-top:10px;border:1px solid rgba(255,255,255,.08);border-radius:8px;overflow:hidden;background:#0A0F0E}
+.pshot img{width:100%;aspect-ratio:1.6;object-fit:cover}
+.ptags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.ptag{font-family:'JetBrains Mono',monospace;font-size:9px;padding:4px 6px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--muted);border-radius:999px}
+.plink{margin-top:8px;display:inline-flex;gap:4px;font-size:11px;color:var(--mint);font-weight:600}
+
+/* TOOLS */
+.tools-head{padding:16px 20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.tools-head h2{font-family:'Space Grotesk',sans-serif;font-size:20px}
+.tools-grid{padding:14px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:700px){ .tools-grid{grid-template-columns:1fr} }
+.tbox{background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:12px;padding:12px}
+.tbox-h{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+.tbox-h i{width:26px;height:26px;border-radius:50%;background:rgba(124,240,181,.12);display:grid;place-items:center;color:var(--mint)}
+.tbox-h b{font-size:12px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:10px;padding:4px 7px;border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:999px;color:var(--muted)}
+
+/* HOW I BUILD */
+.how-head{padding:16px 20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.how-head h2{font-family:'Space Grotesk',sans-serif;font-size:20px}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;padding:0 14px 14px}
+@media(max-width:900px){ .steps{grid-template-columns:repeat(2,1fr)} }
+@media(max-width:600px){ .steps{grid-template-columns:1fr} }
+.step{border:1px solid var(--line);border-radius:12px;padding:12px;background:rgba(255,255,255,.02)}
+.step strong{color:var(--mint);font-size:12px}
+.step h4{font-size:12px;margin-top:6px}
+.step p{font-size:11px;line-height:1.5;color:var(--muted);margin-top:6px}
+.focus-row{margin:0 14px 14px;border:1px solid var(--line);border-radius:12px;padding:12px;background:rgba(255,255,255,.02)}
+.focus-row b{font-size:11px}
+.icons{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.ico{display:flex;gap:6px;align-items:center;padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.02);font-size:10px;color:var(--muted)}
+.ico i{width:18px;height:18px;border-radius:50%;background:rgba(124,240,181,.1);display:grid;place-items:center;color:var(--mint)}
+
+/* EDUCATION */
+.edu{padding:16px 20px}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:700px){ .edu-grid{grid-template-columns:1fr} }
+.eblock{border:1px solid var(--line);border-radius:12px;padding:12px;background:rgba(255,255,255,.02)}
+.eblock h4{font-size:12px}
+.eblock p{font-size:11px;color:var(--muted)}
+.mini{font-size:10px;color:var(--muted2)}
+.course{margin-top:12px;border:1px solid var(--line);border-radius:12px;padding:12px;background:rgba(255,255,255,.02)}
+.course h4{font-size:12px;display:flex;gap:8px;align-items:center}
+.course ul{margin-top:6px;margin-left:16px;font-size:11px;color:var(--muted);line-height:1.6}
+
+/* CONTACT */
+.contact-card{padding:20px;display:grid;grid-template-columns:1.1fr .9fr;gap:20px;position:relative;overflow:hidden}
+@media(max-width:800px){ .contact-card{grid-template-columns:1fr} }
+.contact-card h2{font-family:'Space Grotesk',sans-serif;font-size:22px;line-height:.95}
+.contact-card h2 span{color:var(--mint)}
+.wave{position:absolute;right:0;bottom:0;width:60%;height:120px;opacity:.22;pointer-events:none}
+.wave svg{width:100%;height:100%}
+.cinfo{display:grid;gap:8px;font-size:11.5px;color:var(--muted)}
+.cinfo i{color:var(--mint)}
+.clinks{display:grid;gap:8px}
+.clink{display:flex;align-items:center;gap:8px;padding:10px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.02)}
+.clink i{width:26px;height:26px;border-radius:6px;background:rgba(124,240,181,.1);display:grid;place-items:center;color:var(--mint)}
+
+.reveal{opacity:0;transform:translateY(10px);transition:.5s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+#loader{position:fixed;inset:0;background:var(--bg);z-index:100;display:grid;place-items:center;transition:.4s}
+#loader.out{opacity:0;visibility:hidden}
+.toast{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:var(--mint);color:#032018;padding:10px 14px;border-radius:999px;font-weight:700;font-size:12px;opacity:0;transition:.3s;z-index:200}
+.toast.show{opacity:1}
+.drawer{position:fixed;inset:0;background:rgba(5,7,7,.96);backdrop-filter:blur(12px);z-index:60;display:grid;place-items:center;opacity:0;pointer-events:none;transition:.25s}
+.drawer.open{opacity:1;pointer-events:auto}
+.drawer-inner{width:min(480px, calc(100% - 24px));background:#0A0F0E;border:1px solid var(--mint-border);border-radius:16px;padding:20px}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div id="loader"><div style="border:1px solid var(--mint-border);padding:18px 22px;background:#0A0F0E;border-radius:12px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--mint)">NAEEM SHAIKH</div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-top:6px" id="loaderText">LOADING 0%</div><div style="height:2px;background:var(--line);margin-top:10px;border-radius:999px;overflow:hidden"><div id="loaderProgress" style="height:100%;width:0;background:var(--mint)"></div></div></div></div>
+
+<div class="page">
+  <!-- HERO -->
+  <div class="card hero" id="home">
+    <div class="card-top"><div class="brand"><b>NAEEM</b> <span>SHAIKH</span></div><button class="menu" id="menuBtn">Menu <i>→</i></button></div>
+    <div class="hero-glow"></div>
+    <div class="hero-person"><picture><source srcset="assets/hero-person-nobg.webp" type="image/webp"><img src="assets/hero-person-nobg.png" alt="Naeem Shaikh" loading="eager" fetchpriority="high"></picture></div>
+    <div class="scroll">SCROLL</div>
+    <div class="hero-body">
+      <div class="hey">Hey 👋, I’m a Software Engineer</div>
+      <div class="big-name">NAEEM</div>
+      <div class="role">Full-Stack Developer</div>
+      <div class="hero-lower">
+        <div class="hero-left">
+          <div class="loc"><i><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5.5z"/></svg></i> Nashik, Maharashtra, India</div>
+          <p class="desc">I build scalable full-stack applications and backend systems using modern technologies. Passionate about creating clean code, solving real problems and building products that make an impact.</p>
+          <div class="contact">
+            <div class="cline"><i><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/><path d="M4 7l8 6 8-6"/></svg></i><a href="mailto:naeemshaikh09sss@gmail.com">naeemshaikh09sss@gmail.com</a></div>
+            <div class="cline"><i><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.12 1.2.4 2.38.83 3.5a2 2 0 01-.57 2.11L8.09 10.6a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.57c1.12.43 2.3.71 3.5.83A2 2 0 0122 17v-.08z"/></svg></i><a href="tel:+917058133209">+91-7058133209</a></div>
+            <div class="soc">
+              <a href="https://github.com/Naeemshaikh09" target="_blank"><i><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.33 1.08 2.9.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0112 6.82a9.56 9.56 0 012.5.34c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .26.18.58.69.48A10 10 0 0012 2z"/></svg></i>GitHub</a>
+              <a href="https://www.linkedin.com/in/shaikh-naeem-6b619b400" target="_blank"><i><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></i>LinkedIn</a>
+              <span style="color:var(--mint)">→</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-right">
+          <div class="rblock">
+            <div class="rtitle">FOCUS</div>
+            <div class="rlist"><div>Full-Stack Development</div><div>Backend Engineering</div><div>AI-Powered Applications</div></div>
+          </div>
+          <div class="rblock">
+            <div class="rtitle">TECH STACK</div>
+            <div class="tgrid">
+              <div class="titem"><div class="ticon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="2.2"/><ellipse cx="12" cy="12" rx="9" ry="4"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)"/></svg></div><span>React</span></div>
+              <div class="titem"><div class="ticon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.4" stroke="currentColor" stroke-width="1.3"/><text x="12" y="15" text-anchor="middle" font-size="9" font-weight="700" fill="currentColor">N</text></svg></div><span>Next.js</span></div>
+              <div class="titem"><div class="ticon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3.4l6.4 3.7v7.4L12 18.2 5.6 14.5V7.1z"/><text x="12" y="13.4" text-anchor="middle" font-size="6" font-weight="700" fill="currentColor" stroke="none">JS</text></svg></div><span>Node.js</span></div>
+              <div class="titem"><div class="ticon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.4" stroke="currentColor" stroke-width="1.3"/><text x="12" y="14.3" text-anchor="middle" font-size="7" fill="currentColor">ex</text></svg></div><span>Express</span></div>
+              <div class="titem"><div class="ticon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M9 2.8C6 2.8 4 5.8 4 9.6c0 3.8 2 6.8 5 6.8s5-3 5-6.8C14 5.8 12 2.8 9 2.8z"/><path d="M9 2.8c-1.2 2-1.8 4-1.8 6.8s.6 4.8 1.8 6.8M9 2.8c1.2 2 1.8 4 1.8 6.8S10.2 14.4 9 16.4M4 9.6h10"/></svg></div><span>MongoDB</span></div>
+              <div class="titem"><div class="ticon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><ellipse cx="12" cy="5.4" rx="6.2" ry="2.6"/><path d="M5.8 5.4v12c0 1.4 2.8 2.6 6.2 2.6s6.2-1.2 6.2-2.6V5.4"/><path d="M5.8 11c0 1.4 2.8 2.6 6.2 2.6s6.2-1.2 6.2-2.6"/></svg></div><span>MySQL</span></div>
+              <div class="titem"><div class="ticon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3.2L5.6 6.8 12 10.4 18.4 6.8z"/><path d="M5.6 10.4L12 14l6.4-3.6"/><path d="M5.6 14L12 17.6 18.4 14"/></svg></div><span>Redis</span></div>
+              <div class="titem"><div class="ticon">+</div><span>More</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-foot"><div>© 2026 NAEEM SHAIKH</div><div>CODE / BUILD / IMPROVE</div></div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="card reveal" id="about">
+    <div class="card-top"><div class="brand"><b>NAEEM</b> <span>SHAIKH</span></div><button class="menu">Menu <i>→</i></button></div>
+    <div class="about">
+      <div>
+        <div class="kicker">About Me</div>
+        <h2>I build software<br>that solves<br><span>real problems.</span></h2>
+        <p>I’m a Computer Engineering student and Software Engineer with hands-on experience building full-stack web applications and AI-powered platforms using modern technologies.</p>
+        <p>I’m passionate about clean code, scalable systems, and creating solutions that make an impact.</p>
+      </div>
+      <div class="about-right">
+        <div class="arow"><i>◉</i><div><b>BASED IN</b><br><span>Nashik, Maharashtra, India</span></div></div>
+        <div class="arow"><i>◎</i><div><b>FOCUS</b><br><span>Full-Stack Development<br>Backend Engineering<br>AI-Powered Applications</span></div></div>
+        <div class="quote">“Better software.<br>A smarter tomorrow.”<br><b>— Naeem Shaikh</b></div>
+      </div>
+    </div>
+    <div class="card-foot"><div>© 2026 NAEEM SHAIKH</div><div>CODE / BUILD / IMPROVE</div></div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="card reveal" id="projects">
+    <div class="card-top"><div class="brand"><b>NAEEM</b> <span>SHAIKH</span></div><button class="menu">Menu <i>→</i></button></div>
+    <div class="proj-head">
+      <div><div class="kicker">Selected Projects</div><h2>My Projects</h2></div>
+      <p>Real-world applications built with modern technologies. Each project taught me something new and helped me grow as a developer.</p>
+    </div>
+    <div class="proj-grid">
+      <div class="pcard">
+        <div class="pnum">01</div><h3>MindGuard AI</h3><em>AI-Powered Mental Health SaaS Platform</em>
+        <div class="pshot"><img src="assets/mindguard.jpg" alt="MindGuard"></div>
+        <div class="ptags"><span class="ptag">Next.js</span><span class="ptag">Node.js</span><span class="ptag">Express</span><span class="ptag">MongoDB</span><span class="ptag">Redis</span></div>
+        <a class="plink" href="https://github.com/Naeemshaikh09" target="_blank">View Case Study →</a>
+      </div>
+      <div class="pcard">
+        <div class="pnum">02</div><h3>StayCraft</h3><em>Vacation Rental &amp; Accommodation Platform</em>
+        <div class="pshot"><img src="assets/staycraft.jpg" alt="StayCraft"></div>
+        <div class="ptags"><span class="ptag">React.js</span><span class="ptag">Node.js</span><span class="ptag">Express</span><span class="ptag">MongoDB</span><span class="ptag">Mongoose</span><span class="ptag">Tailwind</span></div>
+        <a class="plink" href="https://github.com/Naeemshaikh09" target="_blank">View Case Study →</a>
+      </div>
+      <div class="pcard">
+        <div class="pnum">03</div><h3>ShopMERN</h3><em>Full-Stack E-Commerce Application</em>
+        <div class="pshot"><img src="assets/shopmern.jpg" alt="ShopMERN"></div>
+        <div class="ptags"><span class="ptag">React.js</span><span class="ptag">Node.js</span><span class="ptag">Express</span><span class="ptag">MongoDB</span><span class="ptag">Redux Toolkit</span><span class="ptag">Stripe</span></div>
+        <a class="plink" href="https://github.com/Naeemshaikh09" target="_blank">View Case Study →</a>
+      </div>
+    </div>
+    <div class="card-foot"><div>© 2026 NAEEM SHAIKH</div><div>CODE / BUILD / IMPROVE</div></div>
+  </div>
+
+  <!-- TOOLS -->
+  <div class="card reveal" id="tools">
+    <div class="card-top"><div class="brand"><b>NAEEM</b> <span>SHAIKH</span></div><button class="menu">Menu <i>→</i></button></div>
+    <div class="tools-head">
+      <div><div class="kicker">Technical Skills</div><h2>Tools I Work With</h2></div>
+      <p style="font-size:11px;color:var(--muted);max-width:300px">A combination of modern frameworks, libraries and tools that help me build scalable and efficient applications.</p>
+    </div>
+    <div class="tools-grid">
+      <div class="tbox"><div class="tbox-h"><i>◧</i><b>Frontend</b></div><div class="chips"><span class="chip">React.js</span><span class="chip">Next.js</span><span class="chip">Redux Toolkit</span><span class="chip">Tailwind CSS</span><span class="chip">Bootstrap</span></div></div>
+      <div class="tbox"><div class="tbox-h"><i>⬡</i><b>Backend</b></div><div class="chips"><span class="chip">Node.js</span><span class="chip">Express.js</span><span class="chip">REST APIs</span><span class="chip">JWT</span><span class="chip">RBAC</span><span class="chip">MVC Architecture</span></div></div>
+      <div class="tbox"><div class="tbox-h"><i>◍</i><b>Database</b></div><div class="chips"><span class="chip">MongoDB</span><span class="chip">Mongoose</span><span class="chip">MySQL</span><span class="chip">Redis</span></div></div>
+      <div class="tbox"><div class="tbox-h"><i>◆</i><b>Tools &amp; Infrastructure</b></div><div class="chips"><span class="chip">Docker</span><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Postman</span><span class="chip">VS Code</span><span class="chip">Vercel</span><span class="chip">Netlify</span><span class="chip">CI/CD</span></div></div>
+      <div class="tbox"><div class="tbox-h"><i>✦</i><b>Payments &amp; AI</b></div><div class="chips"><span class="chip">Razorpay</span><span class="chip">AI/LLM APIs</span></div></div>
+      <div class="tbox"><div class="tbox-h"><i>⬢</i><b>Core CS</b></div><div class="chips"><span class="chip">Data Structures & Algorithms</span><span class="chip">OOP</span><span class="chip">Database Design</span><span class="chip">API Design</span><span class="chip">Responsive Web Dev</span></div></div>
+    </div>
+    <div class="card-foot"><div>© 2026 NAEEM SHAIKH</div><div>CODE / BUILD / IMPROVE</div></div>
+  </div>
+
+  <!-- HOW I BUILD -->
+  <div class="card reveal" id="build">
+    <div class="card-top"><div class="brand"><b>NAEEM</b> <span>SHAIKH</span></div><button class="menu">Menu <i>→</i></button></div>
+    <div class="how-head">
+      <div><div class="kicker">Development Process</div><h2>How I Build</h2></div>
+      <p style="font-size:11px;color:var(--muted);max-width:300px">A focused approach to turn ideas into reliable, scalable and high-performance applications.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><strong>01</strong><h4>Understand</h4><p>Analyze requirements, plan the architecture and break down the task.</p></div>
+      <div class="step"><strong>02</strong><h4>Architect</h4><p>Design scalable system structure, DB models and APIs.</p></div>
+      <div class="step"><strong>03</strong><h4>Build</h4><p>Write clean, modular and maintainable code.</p></div>
+      <div class="step"><strong>04</strong><h4>Optimize</h4><p>Improve performance, add caching, handle edge cases.</p></div>
+      <div class="step"><strong>05</strong><h4>Ship</h4><p>Deploy, monitor and iterate based on user feedback.</p></div>
+    </div>
+    <div class="focus-row">
+      <b>I focus on</b>
+      <div class="icons">
+        <span class="ico"><i>≡</i>REST API design</span><span class="ico"><i>◈</i>Authentication & Authorization</span><span class="ico"><i>▦</i>Database modeling</span><span class="ico"><i>◎</i>Caching</span><span class="ico"><i>⬢</i>API performance</span><span class="ico"><i>▭</i>Responsive frontend</span><span class="ico"><i>✦</i>AI integrations</span>
+      </div>
+    </div>
+    <div class="card-foot"><div>© 2026 NAEEM SHAIKH</div><div>CODE / BUILD / IMPROVE</div></div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="card reveal" id="education">
+    <div class="card-top"><div class="brand"><b>NAEEM</b> <span>SHAIKH</span></div><button class="menu">Menu <i>→</i></button></div>
+    <div class="edu">
+      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><div><div class="kicker">Education</div><h2 style="font-family:'Space Grotesk',sans-serif;font-size:20px">My Education</h2></div><div style="font-size:10px;color:var(--muted);text-align:right">Learning never stops,<br>it’s a continuous process.</div></div>
+      <div class="edu-grid" style="margin-top:12px">
+        <div class="eblock"><div style="display:flex;gap:10px;align-items:center"><i style="width:28px;height:28px;border:1px solid var(--mint-dim);background:rgba(124,240,181,.08);border-radius:6px;display:grid;place-items:center;color:var(--mint)">🎓</i><div><h4>B.Tech — Computer Engineering</h4><p>Expected 2027<br>CGPA: 7.8</p></div></div></div>
+        <div class="eblock"><div style="display:flex;gap:10px;align-items:center"><i style="width:28px;height:28px;border:1px solid var(--mint-dim);background:rgba(124,240,181,.08);border-radius:6px;display:grid;place-items:center;color:var(--mint)">🎓</i><div><h4>Diploma — Computer Science</h4><p>77.37%</p></div></div></div>
+      </div>
+      <div class="course">
+        <h4><i style="width:18px;height:18px;display:grid;place-items:center;color:var(--mint)">📖</i> Relevant Coursework</h4>
+        <ul><li>Data Structures & Algorithms, Object-Oriented Programming, Database Management Systems, Computer Networks, Operating Systems, Software Engineering.</li></ul>
+      </div>
+      <div class="course">
+        <h4><i style="width:18px;height:18px;display:grid;place-items:center;color:var(--mint)">🏆</i> Certifications & Achievements</h4>
+        <ul><li>Full Stack Web Development Certification</li><li>SunHacks International Hackathon — Participant</li></ul>
+      </div>
+    </div>
+    <div class="card-foot"><div>© 2026 NAEEM SHAIKH</div><div>CODE / BUILD / IMPROVE</div></div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="card reveal" id="contact">
+    <div class="card-top"><div class="brand"><b>NAEEM</b> <span>SHAIKH</span></div><button class="menu">Menu <i>→</i></button></div>
+    <div class="contact-card">
+      <div>
+        <div class="kicker">Let’s Connect</div>
+        <h2>LET’S BUILD<br><span>SOMETHING USEFUL.</span></h2>
+        <p style="font-size:11px;color:var(--muted);margin-top:8px;max-width:340px">Whether you have a project in mind, a job opportunity, or just want to say hi — I’m always open to connect.</p>
+      </div>
+      <div class="cinfo">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div class="clinks">
+            <div class="clink"><i>◉</i><div><b>Naeem Shaikh</b><br><span style="font-size:11px;color:var(--muted)">Software Engineer | Full-Stack Developer</span><br><span style="font-size:11px;color:var(--muted)">Nashik, Maharashtra, India</span></div></div>
+            <div class="clink"><i>✉</i><div><a href="mailto:naeemshaikh09sss@gmail.com">naeemshaikh09sss@gmail.com</a><br><a href="tel:+917058133209">+91-7058133209</a></div></div>
+          </div>
+          <div class="clinks">
+            <a class="clink" href="https://github.com/Naeemshaikh09" target="_blank"><i>G</i><div><b>GitHub</b></div><span style="margin-left:auto;color:var(--mint)">View Profile →</span></a>
+            <a class="clink" href="https://www.linkedin.com/in/shaikh-naeem-6b619b400" target="_blank"><i>in</i><div><b>LinkedIn</b></div><span style="margin-left:auto;color:var(--mint)">Connect →</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="wave">
+        <svg viewBox="0 0 600 120" preserveAspectRatio="none"><path d="M0 80 C 80 20, 180 100, 260 40 C 340 -10, 420 90, 500 30 C 540 10, 580 60, 600 20 L 600 120 L 0 120 Z" fill="none" stroke="rgba(124,240,181,.18)" stroke-width="1"/><path d="M0 90 C 100 40, 200 110, 300 50 C 380 10, 460 100, 600 40" fill="none" stroke="rgba(124,240,181,.12)" stroke-width="1"/><path d="M0 100 C 120 60, 240 120, 360 70 C 440 40, 520 110, 600 60" fill="none" stroke="rgba(124,240,181,.08)" stroke-width="1"/></svg>
+      </div>
+    </div>
+    <div class="card-foot"><div>© 2026 NAEEM SHAIKH</div><div>CODE / BUILD / IMPROVE</div></div>
+  </div>
+</div>
+
+<div class="drawer" id="drawer"><div class="drawer-inner"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><b>Menu</b><button onclick="closeDrawer()" style="width:28px;height:28px;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:8px">✕</button></div><div style="display:grid;gap:8px"><a href="#home" onclick="closeDrawer()" style="padding:12px;border:1px solid var(--line);border-radius:10px;display:flex;justify-content:space-between"><span>Home</span><span style="color:var(--mint);font-family:'JetBrains Mono',monospace;font-size:10px">00</span></a><a href="#about" onclick="closeDrawer()" style="padding:12px;border:1px solid var(--line);border-radius:10px;display:flex;justify-content:space-between"><span>About</span><span style="color:var(--mint);font-family:'JetBrains Mono',monospace;font-size:10px">01</span></a><a href="#projects" onclick="closeDrawer()" style="padding:12px;border:1px solid var(--line);border-radius:10px;display:flex;justify-content:space-between"><span>Projects</span><span style="color:var(--mint);font-family:'JetBrains Mono',monospace;font-size:10px">02</span></a><a href="#tools" onclick="closeDrawer()" style="padding:12px;border:1px solid var(--line);border-radius:10px;display:flex;justify-content:space-between"><span>Tools</span><span style="color:var(--mint);font-family:'JetBrains Mono',monospace;font-size:10px">03</span></a><a href="#build" onclick="closeDrawer()" style="padding:12px;border:1px solid var(--line);border-radius:10px;display:flex;justify-content:space-between"><span>How I Build</span><span style="color:var(--mint);font-family:'JetBrains Mono',monospace;font-size:10px">04</span></a><a href="#education" onclick="closeDrawer()" style="padding:12px;border:1px solid var(--line);border-radius:10px;display:flex;justify-content:space-between"><span>Education</span><span style="color:var(--mint);font-family:'JetBrains Mono',monospace;font-size:10px">05</span></a><a href="#contact" onclick="closeDrawer()" style="padding:12px;border:1px solid var(--line);border-radius:10px;display:flex;justify-content:space-between"><span>Contact</span><span style="color:var(--mint);font-family:'JetBrains Mono',monospace;font-size:10px">06</span></a></div></div></div>
+<div class="toast" id="toast"></div>
+<script>
+let p=0;const bar=document.getElementById('loaderProgress'),txt=document.getElementById('loaderText'),loader=document.getElementById('loader');
+const iv=setInterval(()=>{p+=Math.random()*14+8;if(p>=100){p=100;clearInterval(iv);bar.style.width=p+'%';txt.textContent='READY';setTimeout(()=>loader.classList.add('out'),300)}else{bar.style.width=p+'%';txt.textContent='LOADING '+Math.floor(p)+'%' }},110);
+window.addEventListener('scroll',()=>{const h=document.documentElement,s=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;document.getElementById('progress').style.width=s+'%'});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const drawer=document.getElementById('drawer');document.querySelectorAll('.menu').forEach(b=>b.addEventListener('click',()=>drawer.classList.add('open')));function closeDrawer(){drawer.classList.remove('open')}drawer.addEventListener('click',e=>{if(e.target===drawer)closeDrawer()});
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
+</script>
+</body>
+</html>
